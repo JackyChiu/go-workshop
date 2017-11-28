@@ -1,5 +1,5 @@
-// The comments in these files for the presentation tool used to generate the slides.
 // +build OMIT
+// The comments in these files for the presentation tool used to generate the slides.
 
 package main
 
@@ -11,7 +11,6 @@ import (
 
 type Result string
 
-// START1 OMIT
 func Google(query string) []Result {
 	var results []Result
 	resultsChan := make(chan Result)
@@ -27,16 +26,13 @@ func Google(query string) []Result {
 	return results
 }
 
-// STOP1 OMIT
-
-// START2 OMIT
 var (
 	Web   = fakeSearch("web")
 	Image = fakeSearch("image")
 	Video = fakeSearch("video")
 )
 
-type Search func(query string) Result // HL
+type Search func(query string) Result
 
 func fakeSearch(kind string) Search {
 	return func(query string) Result {
@@ -45,12 +41,10 @@ func fakeSearch(kind string) Search {
 	}
 }
 
-// STOP2 OMIT
-
 func main() {
 	rand.Seed(time.Now().UnixNano())
 	start := time.Now()
-	results := Google("golang") // HL
+	results := Google("golang")
 	elapsed := time.Since(start)
 	fmt.Println(results)
 	fmt.Println(elapsed)

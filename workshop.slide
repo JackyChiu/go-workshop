@@ -199,3 +199,32 @@ A buffered channel is like adding a voice mail.
 
 - Someone that calls you doesn't have to wait for you to finish your call
 - You can listen to one voice mail after another at your own speed
+
+* Code Example
+
+* Google Search: A fake framework
+
+We can simulate the search function.
+
+.code google.go /START1/,/STOP1/
+
+* Google Search: Test the framework
+
+.play google.go /func.main/,/}/
+
+* Google Search
+
+The Google function takes a query and returns a slice of Results (which are just strings).
+
+Google invokes Web, Image, and Video searches one after another, appending them to the results.
+
+.play google.go /func.Google/,/}/
+
+* Faster Google Search 
+
+Now we create a channel and goroutines for each search.
+The goroutines send the results down the channel.
+
+We receive on the channel and update our final result.
+
+.play google_concurrent.go /func.Google/,/}/

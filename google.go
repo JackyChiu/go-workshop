@@ -1,5 +1,6 @@
-// The comments in these files for the presentation tool used to generate the slides.
 // +build OMIT
+
+// The comments in these files for the presentation tool used to generate the slides.
 
 package main
 
@@ -11,7 +12,6 @@ import (
 
 type Result string
 
-// START1 OMIT
 func Google(query string) []Result {
 	var results []Result
 
@@ -22,9 +22,7 @@ func Google(query string) []Result {
 	return results
 }
 
-// STOP1 OMIT
-
-// START2 OMIT
+// START1 OMIT
 var (
 	Web   = fakeSearch("web")
 	Image = fakeSearch("image")
@@ -40,7 +38,7 @@ func fakeSearch(kind string) Search {
 	}
 }
 
-// STOP2 OMIT
+// STOP1 OMIT
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
